@@ -19,3 +19,6 @@ By default, only OPs have permissions. Use PermissionsEx or similar plugins to g
   - `barrierblock.*` - Grants both permissions below.
     - `barrierblock.place` - Allows toggling of `/barrier` (and its aliases).
     - `barrierblock.break` - Allows breaking of Barrier blocks.
+
+## Note if running [StairsFix](https://github.com/AleksandarHaralanov/StairsFix)
+Use the [latest](https://github.com/AleksandarHaralanov/StairsFix/releases/latest) release of StairsFix to avoid stairs duplication.
