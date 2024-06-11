@@ -1,0 +1,27 @@
+main: me.beezle.barrierblock.BarrierBlock
+version: 1.0.0
+name: BarrierBlock
+authors: [Beezle]
+description: Allows for the creation of invisible pass-through barrier blocks.
+
+commands:
+  barrier:
+    description: Toggles conversion of placed stairs to barrier blocks.
+    permission: barrierblock.place
+    permission-message: You do not have permission to utilize barriers.
+    usage: /<command>
+    aliases: [b, bb, bar]
+
+permissions:
+  barrierblock.*:
+    description: Allows full access to barrier block features.
+    default: op
+    children:
+      barrierblock.place: true
+      barrierblock.break: true
+  barrierblock.place:
+    description: Allows placement of barrier blocks.
+    default: op
+  barrierblock.break:
+    description: Allows breaking of barrier blocks.
+    default: op
