@@ -1,4 +1,4 @@
-# BarrierBlock
+# Barriers
 Allows for placement of invisible pass-through barrier blocks.
 
 Can be used for multiple purposes, including:
