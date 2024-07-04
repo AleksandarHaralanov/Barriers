@@ -1,27 +1,29 @@
-main: me.beezle.barrierblock.BarrierBlock
-version: 1.0.0
-name: BarrierBlock
-authors: [Beezle]
+main: com.haralanov.barriers.Barriers
+version: 2.0.0
+name: Barriers
+author: Beezle
+website: https://github.com/AleksandarHaralanov/Barriers
 description: Allows for the creation of invisible pass-through barrier blocks.
 
 commands:
   barrier:
     description: Toggles conversion of placed stairs to barrier blocks.
-    permission: barrierblock.place
-    permission-message: You do not have permission to utilize barriers.
     usage: /<command>
-    aliases: [b, bb, bar]
+    aliases: [bar]
+  barriers:
+    description: Check information about Barriers plugin.
+    usage: /<command>
 
 permissions:
-  barrierblock.*:
+  barriers.*:
     description: Allows full access to barrier block features.
     default: op
     children:
-      barrierblock.place: true
-      barrierblock.break: true
-  barrierblock.place:
+      barriers.place: true
+      barriers.break: true
+  barriers.place:
     description: Allows placement of barrier blocks.
     default: op
-  barrierblock.break:
+  barriers.break:
     description: Allows breaking of barrier blocks.
     default: op

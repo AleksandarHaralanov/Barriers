@@ -10,15 +10,13 @@ Can be used for multiple purposes, including:
 - Compiled on Adoptium JDK 8 and [Poseidon](https://github.com/RhysB/Project-Poseidon), fork of CB1060.
 
 ## Usage
-When toggled on, placing an Obsidian block will convert it to a Barrier block. See instructions below.
+By default, only OPs have permissions.
 
-By default, only OPs have permissions. Use PermissionsEx or similar plugins to grant groups the permission to toggle placement on/off and break barrier blocks.
-- Command: `/barrier`
-  - Aliases: `/b`, `/bb`, `/bar`
+Use PermissionsEx or similar plugins to grant groups the permission to toggle placement on/off and break barrier blocks.
+- Commands: 
+  - `/barrier` or `/bar` - Requires permission - Toggles the placement of barrier blocks. The block ID specified in `config.yml` will be used (Obsidian by default). When toggled on, placing this block will convert it into a barrier block.
+  - `/barriers` - Does not require permission - Prints author, version, and a link to this repository.
 - Permissions:
   - `barrierblock.*` - Grants both permissions below.
-    - `barrierblock.place` - Allows toggling of `/barrier` (and its aliases).
-    - `barrierblock.break` - Allows breaking of Barrier blocks.
-
-## Note if running [StairsFix](https://github.com/AleksandarHaralanov/StairsFix)
-Use the [latest](https://github.com/AleksandarHaralanov/StairsFix/releases/latest) release of StairsFix to avoid stairs duplication.
+    - `barrierblock.place` - Allows usage of `/barrier` and its alias, `/bar`.
+    - `barrierblock.break` - Allows breaking of barrier blocks.
