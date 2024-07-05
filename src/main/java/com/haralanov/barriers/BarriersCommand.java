@@ -3,11 +3,12 @@ package com.haralanov.barriers;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
+import org.bukkit.inventory.ItemStack;
 
 import static org.bukkit.Bukkit.getLogger;
 
@@ -19,6 +20,7 @@ public class BarriersCommand implements CommandExecutor {
     private final String SOURCE;
 
     private static final List<String> isToggled = new ArrayList<>();
+    private static final int placementID = Barriers.getConfig().getPlacementID();
 
     public BarriersCommand(String NAME, String VERSION, String AUTHOR, String SOURCE) {
         this.NAME = NAME;
@@ -31,10 +33,13 @@ public class BarriersCommand implements CommandExecutor {
         return isToggled;
     }
 
+    public int getPlacementID() {
+        return placementID;
+    }
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        Player player = (commandSender instanceof Player) ? (Player) commandSender : null;
-
+        final Player player = (commandSender instanceof Player) ? (Player) commandSender : null;
         if (command.getName().equalsIgnoreCase("barriers")) {
             if (player != null) {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
@@ -49,26 +54,26 @@ public class BarriersCommand implements CommandExecutor {
             if (player != null) {
                 if (!(player.hasPermission("barriers.place") || player.isOp())) {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                            "&cYou do not have permission to place barriers."));
+                            "&cYou do not have permission to place barrier blocks."));
                 } else {
-                    toggleBarriers(player);
+                    togglePlacement(player);
                 }
             } else {
                 getLogger().info("Terminals cannot place barriers.");
             }
         }
-
         return true;
     }
 
-    private void toggleBarriers(Player player) {
+    private static void togglePlacement(Player player) {
         if (isToggled.contains(player.getDisplayName())) {
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                     "&bBarrier placement toggled &cOFF&b."));
             isToggled.remove(player.getDisplayName());
         } else {
+            ItemStack usingBlock = new ItemStack(placementID);
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                    "&bBarrier placement toggled &aON&b."));
+                    String.format("&bBarrier placement toggled &aON&b for &e%s&b.", usingBlock.getType())));
             isToggled.add(player.getDisplayName());
         }
     }
