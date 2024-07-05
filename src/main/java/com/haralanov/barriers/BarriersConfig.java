@@ -11,7 +11,7 @@ public class BarriersConfig extends Configuration {
     public BarriersConfig(File file, String NAME) {
         super(file);
         if (!file.exists()) {
-            File parent = file.getParentFile();
+            final File parent = file.getParentFile();
             if (parent != null && !parent.exists() && !parent.mkdirs()) {
                 getLogger().severe(String.format("[%s] Failed to create directories for config: %s", NAME, file.getAbsolutePath()));
             }
@@ -26,18 +26,20 @@ public class BarriersConfig extends Configuration {
     }
 
     private void generate() {
-        String header = "# 'placementBlock' - Enter the ID of the block to be used for barriers placement.";
+        final String header = String.join("\n",
+                "# 'placementID' - Enter the ID of the block to be used for barriers placement.",
+                "# The ID must be between 1 and 255. Otherwise, the plugin will default to 49, which corresponds to Obsidian.");
         this.setHeader(header);
-        if (this.getProperty("placementBlock") == null) {
-            this.setProperty("placementBlock", 49);
+        if (this.getProperty("placementID") == null) {
+            this.setProperty("placementID", 49);
         }
     }
 
-    public int getPlacementBlock(String key, int defaultValue) {
-        Object value = this.getProperty(key);
-        if (value instanceof Integer) {
+    public int getPlacementID() {
+        final Object value = this.getProperty("placementID");
+        if ((Integer) value >= 1 && (Integer) value <= 255) {
             return (Integer) value;
         }
-        return defaultValue;
+        return 49;
     }
 }
