@@ -6,7 +6,6 @@ import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockPlaceListener implements Listener {
 
-    private static final int placementBlock = Barriers.getConfig().getPlacementBlock("placementBlock", 49);
     private final BarriersCommand commandExecutor;
 
     public BlockPlaceListener(BarriersCommand commandExecutor) {
@@ -15,7 +14,7 @@ public class BlockPlaceListener implements Listener {
 
     @EventHandler
     public void onBlockPlace(final BlockPlaceEvent event) {
-        if (event.getBlockPlaced().getTypeId() == placementBlock
+        if (event.getBlockPlaced().getTypeId() == commandExecutor.getPlacementID()
                 && commandExecutor.getToggle().contains(event.getPlayer().getDisplayName())
                 && event.getPlayer().hasPermission("barriers.place")) {
             event.getBlockPlaced().setTypeIdAndData(67, (byte) 4, false);
