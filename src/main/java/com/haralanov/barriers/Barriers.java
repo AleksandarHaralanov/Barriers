@@ -19,7 +19,8 @@ public class Barriers extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        PluginDescriptionFile pdf = this.getDescription();
+        final PluginDescriptionFile pdf = this.getDescription();
+
         VERSION = pdf.getVersion();
         NAME = pdf.getName();
         AUTHOR = pdf.getAuthors().get(0);
@@ -29,11 +30,12 @@ public class Barriers extends JavaPlugin {
 
         UpdateUtil.checkForUpdates(NAME, VERSION, "https://api.github.com/repos/AleksandarHaralanov/Barriers/releases/latest");
 
-        BarriersCommand barriersCommand = new BarriersCommand(NAME, VERSION, AUTHOR, SOURCE);
+        final BarriersCommand barriersCommand = new BarriersCommand(NAME, VERSION, AUTHOR, SOURCE);
         getCommand("barrier").setExecutor(barriersCommand);
         getCommand("barriers").setExecutor(barriersCommand);
         getServer().getPluginManager().registerEvents(new BlockPlaceListener(barriersCommand), this);
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockPistonListener(), this);
 
         getLogger().info(String.format("[%s] v%s Enabled.", NAME, VERSION));
     }
