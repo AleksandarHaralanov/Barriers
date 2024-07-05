@@ -1,13 +1,13 @@
 main: com.haralanov.barriers.Barriers
-version: 2.0.0
+version: 3.0.0
 name: Barriers
 author: Beezle
 website: https://github.com/AleksandarHaralanov/Barriers
-description: Allows for the creation of invisible pass-through barrier blocks.
+description: Players can create invisible pass-through barrier blocks.
 
 commands:
   barrier:
-    description: Toggles conversion of placed stairs to barrier blocks.
+    description: Toggles placement for barrier blocks.
     usage: /<command>
     aliases: [bar]
   barriers:
