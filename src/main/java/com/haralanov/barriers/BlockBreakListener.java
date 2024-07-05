@@ -14,7 +14,8 @@ public class BlockBreakListener implements Listener {
             if (event.getPlayer().hasPermission("barriers.break")) {
                 event.getBlock().setTypeId(0);
             } else {
-                event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', "&cYou do not have permission to break barrier blocks."));
+                event.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        "&cYou do not have permission to break barrier blocks."));
             }
         }
     }
