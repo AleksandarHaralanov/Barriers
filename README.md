@@ -1,5 +1,5 @@
 # Barriers
-Players can create invisible pass-through barrier blocks.
+Players can create invisible, pass-through barrier blocks that cannot be moved by pistons and can only be broken with the appropriate permissions.
 
 Can be used for multiple purposes, including:
 - Stopping water and/or lava flow.
