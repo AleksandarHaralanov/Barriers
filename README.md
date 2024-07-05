@@ -1,5 +1,5 @@
 # Barriers
-Allows for placement of invisible pass-through barrier blocks.
+Players can create invisible pass-through barrier blocks.
 
 Can be used for multiple purposes, including:
 - Stopping water and/or lava flow.
