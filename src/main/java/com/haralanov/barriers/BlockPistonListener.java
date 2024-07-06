@@ -10,7 +10,7 @@ public class BlockPistonListener implements Listener {
 
     @EventHandler
     public void onPistonExtend(final BlockPistonExtendEvent event) {
-        for (Block block : event.getBlocks()) {
+        for (final Block block : event.getBlocks()) {
             if (block.getTypeId() == 67 && block.getData() == (byte) 4) {
                 event.setCancelled(true);
             }
