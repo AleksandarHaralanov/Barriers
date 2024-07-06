@@ -11,6 +11,7 @@ public class BlockBreakListener implements Listener {
     public void onBlockBreak(final BlockBreakEvent event) {
         if (event.getBlock().getTypeId() == 67 && event.getBlock().getData() == (byte) 4) {
             event.setCancelled(true);
+
             if (event.getPlayer().hasPermission("barriers.break")) {
                 event.getBlock().setTypeId(0);
             } else {
