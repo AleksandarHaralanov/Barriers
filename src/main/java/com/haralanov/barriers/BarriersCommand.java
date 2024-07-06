@@ -22,7 +22,7 @@ public class BarriersCommand implements CommandExecutor {
     private static final List<String> isToggled = new ArrayList<>();
     private static final int placementID = Barriers.getConfig().getPlacementID();
 
-    public BarriersCommand(String NAME, String VERSION, String AUTHOR, String SOURCE) {
+    public BarriersCommand(final String NAME, final String VERSION, final String AUTHOR, final String SOURCE) {
         this.NAME = NAME;
         this.VERSION = VERSION;
         this.AUTHOR = AUTHOR;
@@ -40,6 +40,7 @@ public class BarriersCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         final Player player = (commandSender instanceof Player) ? (Player) commandSender : null;
+
         if (command.getName().equalsIgnoreCase("barriers")) {
             if (player != null) {
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&',
@@ -62,6 +63,7 @@ public class BarriersCommand implements CommandExecutor {
                 getLogger().info("Terminals cannot place barriers.");
             }
         }
+
         return true;
     }
 
@@ -69,11 +71,14 @@ public class BarriersCommand implements CommandExecutor {
         if (isToggled.contains(player.getDisplayName())) {
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                     "&bBarrier placement toggled &cOFF&b."));
+
             isToggled.remove(player.getDisplayName());
         } else {
-            ItemStack usingBlock = new ItemStack(placementID);
+            final ItemStack block = new ItemStack(placementID);
+
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                    String.format("&bBarrier placement toggled &aON&b for &e%s&b.", usingBlock.getType())));
+                    String.format("&bBarrier placement toggled &aON&b for &e%s&b.", block.getType())));
+
             isToggled.add(player.getDisplayName());
         }
     }
