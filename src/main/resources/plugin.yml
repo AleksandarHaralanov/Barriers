@@ -1,5 +1,5 @@
 main: com.haralanov.barriers.Barriers
-version: 3.0.0
+version: 3.0.1
 name: Barriers
 author: Beezle
 website: https://github.com/AleksandarHaralanov/Barriers
@@ -11,7 +11,7 @@ commands:
     usage: /<command>
     aliases: [bar]
   barriers:
-    description: Check information about Barriers plugin.
+    description: Check information about the Barriers plugin.
     usage: /<command>
 
 permissions:
