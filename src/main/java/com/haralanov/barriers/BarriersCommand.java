@@ -38,7 +38,7 @@ public class BarriersCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+    public boolean onCommand(final CommandSender commandSender, final Command command, final String s, final String[] strings) {
         final Player player = (commandSender instanceof Player) ? (Player) commandSender : null;
 
         if (command.getName().equalsIgnoreCase("barriers")) {
@@ -67,7 +67,7 @@ public class BarriersCommand implements CommandExecutor {
         return true;
     }
 
-    private static void togglePlacement(Player player) {
+    private static void togglePlacement(final Player player) {
         if (isToggled.contains(player.getDisplayName())) {
             player.sendMessage(ChatColor.translateAlternateColorCodes('&',
                     "&bBarrier placement toggled &cOFF&b."));
