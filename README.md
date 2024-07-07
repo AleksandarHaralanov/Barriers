@@ -18,6 +18,6 @@ Use PermissionsEx or similar plugins to grant groups the permission to toggle pl
     - The block ID specified in `config.yml` must be a value between 1 and 96. If an invalid value is entered, it will default to 49 (Obsidian). When toggled on, placing this block will convert it into a barrier block.
   - `/barriers` - Does not require permission - Prints author, version, and a link to this repository.
 - Permissions:
-  - `barrierblock.*` - Grants both permissions below.
-    - `barrierblock.place` - Allows usage of `/barrier` and its alias, `/bar`.
-    - `barrierblock.break` - Allows breaking of barrier blocks.
+  - `barriers.*` - Grants both permissions below.
+    - `barriers.place` - Allows usage of `/barrier` and its alias, `/bar`.
+    - `barriers.break` - Allows breaking of barrier blocks.
