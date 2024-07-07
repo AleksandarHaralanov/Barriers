@@ -2,7 +2,7 @@ main: com.haralanov.barriers.Barriers
 version: 3.0.1
 name: Barriers
 author: Beezle
-website: https://github.com/AleksandarHaralanov/Barriers
+website: github.com/AleksandarHaralanov/Barriers
 description: Players can create invisible pass-through barrier blocks.
 
 commands:
@@ -11,7 +11,7 @@ commands:
     usage: /<command>
     aliases: [bar]
   barriers:
-    description: Check information about the Barriers plugin.
+    description: See info about the Barriers plugin.
     usage: /<command>
 
 permissions:
